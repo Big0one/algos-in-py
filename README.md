@@ -35,6 +35,13 @@
 
 # Mathematics
 
+# Number Theory
+1. Fibonacci Series
+2. Palindrome Number
+3. Prime Number
+4. Finding Divisors
+5. Base Conversion
+
 # Tree
 1. Binary Tree
 2. Binary Search Tree
