@@ -35,12 +35,19 @@
 
 # Mathematics
 
-# Number Theory
+## Number Theory
 1. Fibonacci Series
 2. Palindrome Number
 3. Prime Number
 4. Finding Divisors
 5. Base Conversion
+6. Greatest Common Divisor (GCD) (Euclidean method)
+7. Lowest Common Multiple (LCM)
+8. Number of Digits of a Factorial
+9. Phi Function (Euler Totient)
+10. Extended Euclidean
+11. Prime Factorization
+12. Modular Exponentiation  
 
 # Tree
 1. Binary Tree
@@ -64,3 +71,15 @@
 10. Strongly Connected Components (SCC)
 11. Kosaraju’s Algorithm
 12. Bellman-Ford
+
+# Dynamic Programming
+1. Recursive vs Iteration
+2. Longest Increasing/Decreasing Subsequence (LIS/LDS)
+3. Longest Common Subsequence (LCS)
+4. Edit Distance 
+5. Traveling Salesman
+6. Coin Change
+
+# Greedy Techniques
+1. Maximum Sum in Subarray (1D)
+2. Maximum Sum in Rectangle (2D)
