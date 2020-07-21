@@ -6,8 +6,8 @@ logger = PyLogger.get_configured_logger()
 def bubble_sort(list_of_number):
     list_len = len(list_of_number)
     
-    for i in range(n-1):
-        for j in range(n-1-i):
+    for i in range(list_len-1):
+        for j in range(list_len-1-i):
             if list_of_number[j] > list_of_number[j+1]:
                 list_of_number[j], list_of_number[j+1] = list_of_number[j+1], list_of_number[j]
     
@@ -35,11 +35,12 @@ def insertion_sort(list_of_number):
         key = list_of_number[i]
         j = i - 1
         
-        for j >= 0 and key < list_of_number[j]:
+        while j >= 0 and key < list_of_number[j]:
             list_of_number[j + 1] = list_of_number[j]
             j -= 1
             
-        list_of_number[j] = key
+        list_of_number[j + 1] = key
     logger.info(list_of_number)
     return list_of_number
+
         
