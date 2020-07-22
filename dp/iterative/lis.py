@@ -12,7 +12,7 @@ def lis(list_of_number):
     [-2, 1, 2, 4]
     """
 
-    index = []         # store the position of numbers in increasing sequence
+    index = []  # store the position of numbers in increasing sequence
     increasing_order = [math.inf for _ in list_of_number]
     lis_length = 0
 
@@ -22,9 +22,11 @@ def lis(list_of_number):
         lis_length = max(lis_length, idx + 1)
         index.append(idx + 1)
 
-    increasing_subsequence = [None for _ in range(lis_length)]  # longest increasing subsequence
+    increasing_subsequence = [
+        None for _ in range(lis_length)
+    ]  # longest increasing subsequence
 
-    for i in range(len(list_of_number)-1, -1, -1):
+    for i in range(len(list_of_number) - 1, -1, -1):
         if index[i] == lis_length:
             lis_length -= 1
             increasing_subsequence[lis_length] = list_of_number[i]
@@ -32,8 +34,9 @@ def lis(list_of_number):
     return increasing_subsequence
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     import time
+
     start = time.process_time()
     print(lis([3, -2, 3, 1, 2, 5, 2, 4]))
     print("Process time: {}".format(time.process_time() - start))
