@@ -2,7 +2,11 @@ def binary_search_index(list_of_numbers, target_value):
     """
     :param list_of_numbers: given current increasing subsequence numbers
     :param target_value: for which position to be fixed
-    :return: right position of the given value on the list of numbers
+    :return: right position of the given value on the list of numbers (from 0 to length - 1)
+
+    examples:
+    >>> binary_search_index([3, 4, 5, 9, 13, 21, 35, 144], 5)
+    2
     """
     lower_index = 0  # set lower bound to 0 index
     higher_index = len(list_of_numbers) - 1  # set higher bound to list_length - 1
@@ -17,3 +21,11 @@ def binary_search_index(list_of_numbers, target_value):
             lower_index = mid_index + 1
 
     return lower_index
+
+
+if __name__ == "__main__":
+    import time
+
+    start = time.process_time()
+    print(binary_search_index([3, 4, 5], 5))
+    print(f"Process time: {time.process_time() - start}")

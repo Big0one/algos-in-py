@@ -1,4 +1,5 @@
 import math
+
 from searching.binary_search import binary_search_index
 
 
@@ -8,7 +9,7 @@ def lis(list_of_number):
     :return: return a longest strictly increasing subsequence with smallest value among all possible sequences
 
     examples:
-    >>>lis([3, -2, 3, 1, 2, 5, 2, 4])
+    >>> lis([3, -2, 3, 1, 2, 5, 2, 4])
     [-2, 1, 2, 4]
     """
 
@@ -36,6 +37,9 @@ def lis(list_of_number):
 
 if __name__ == "__main__":
     import time
+    import doctest
+
+    doctest.testmod()
 
     start = time.process_time()
     print(lis([3, -2, 3, 1, 2, 5, 2, 4]))
