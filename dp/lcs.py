@@ -1,3 +1,6 @@
+# LCS: Longest Common Subsequence
+
+
 def iterative_lcs(var1, var2):
     """
     :param var1: variable
@@ -30,8 +33,14 @@ def recursive_lcs(var1, var2, length1, length2):
     :param var1: variable
     :param var2: 2nd variable to compare and finding longest common sub seqeuence
     :param length1: length of variable
-    :param length2:
+    :param length2: length of 2nd variable
     :return: return length of longest common subsequence
+
+    examples:
+    >>> recursive_lcs("abcd", "abxbxbc", 4, 7)
+    3
+    >>> recursive_lcs([1, 2, 4, 3], [1, 2, 3, 4], 4, 4)
+    3
     """
     if length1 == 0 or length2 == 0:
         return 0
@@ -50,8 +59,8 @@ if __name__ == "__main__":
 
     doctest.testmod()
     start = time.process_time()
-    print(iterative_lcs("aggtab", "gxtxayb"))
+    print(iterative_lcs([1, 3, 2, 5], [1, 4, 2, 3, 5]))
     print(f"Processed time: {time.process_time() - start}")
     start = time.process_time()
     print(recursive_lcs([1, 3, 2, 5], [1, 4, 2, 3, 5], 4, 5))
-    print(f"Processed time: {time.process_time() - start}")
+    print(f"Processed time: {time.process_time() - start} ms")
