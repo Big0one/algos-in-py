@@ -28,4 +28,4 @@ if __name__ == "__main__":
 
     start = time.process_time()
     print(binary_search_index([3, 4, 5], 5))
-    print(f"Process time: {time.process_time() - start}")
+    print(f"Process time: {time.process_time() - start} ms")

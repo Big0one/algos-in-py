@@ -1,3 +1,6 @@
+# LIS: Longest Increasing Subsequence
+
+
 import math
 
 from searching.binary_search import binary_search_index
@@ -43,4 +46,4 @@ if __name__ == "__main__":
 
     start = time.process_time()
     print(lis([3, -2, 3, 1, 2, 5, 2, 4]))
-    print("Process time: {}".format(time.process_time() - start))
+    print("Process time: {} ms".format(time.process_time() - start))
