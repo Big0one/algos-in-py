@@ -1,5 +1,8 @@
 # BIT: Binary Indexed Tree
 # A range queries algorithm
+from src.main.logger.py_logger import PyLogger
+
+logger = PyLogger.get_configured_logger()
 
 
 class BIT:
@@ -43,5 +46,5 @@ if __name__ == "__main__":
     start = time.process_time()
     obj = BIT([1, 2, 3, 5, 6])
     obj.build()
-    print(obj.query(3))
-    print(f"Process time: {time.process_time() - start} ms")
+    logger.info(f"Summation in range {[1, 3]}: {obj.query(3)}")
+    logger.info(f"Process time: {time.process_time() - start} seconds")

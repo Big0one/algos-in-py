@@ -1,9 +1,10 @@
 # LIS: Longest Increasing Subsequence
 
-
 import math
+from src.main.logger.py_logger import PyLogger
+from src.main.algorithm.searching.binary_search import binary_search_index
 
-from searching.binary_search import binary_search_index
+logger = PyLogger.get_configured_logger()
 
 
 def lis(list_of_number):
@@ -45,5 +46,5 @@ if __name__ == "__main__":
     doctest.testmod()
 
     start = time.process_time()
-    print(lis([3, -2, 3, 1, 2, 5, 2, 4]))
-    print("Process time: {} ms".format(time.process_time() - start))
+    logger.info(f"longest increasing subsequence: {lis([3, -2, 3, 1, 2, 5, 2, 4])}")
+    logger.info("Process time: {} seconds".format(time.process_time() - start))
