@@ -1,8 +1,9 @@
 import unittest
-from src.main.algorithm.sorting import *
+from src.main.algorithm.sorting.sorting import *
+from src.main.algorithm.sorting.__mergesort__ import *
 
 
-class DictTest(unittest.TestCase):
+class SortingTest(unittest.TestCase):
     def test_bubble_sort(self):
         self.assertEqual(
             bubble_sort([64, 34, 25, 12, 22, 11, 90]), [11, 12, 22, 25, 34, 64, 90]
@@ -49,3 +50,7 @@ class DictTest(unittest.TestCase):
             bucketSort([0.897, 0.565, 0.656, 0.1234, 0.665, 0.3434]),
             [0.1234, 0.3434, 0.565, 0.656, 0.665, 0.897],
         )
+
+
+if __name__ == "__main__":
+    unittest.main()

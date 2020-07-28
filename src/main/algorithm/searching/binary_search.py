@@ -1,3 +1,8 @@
+from src.main.logger.py_logger import PyLogger
+
+logger = PyLogger.get_configured_logger()
+
+
 def binary_search_index(list_of_numbers, target_value):
     """
     :param list_of_numbers: given current increasing subsequence numbers
@@ -27,5 +32,5 @@ if __name__ == "__main__":
     import time
 
     start = time.process_time()
-    print(binary_search_index([3, 4, 5], 5))
-    print(f"Process time: {time.process_time() - start}")
+    logger.info(f"Index for {5} in {[3, 4, 5]}: {binary_search_index([3, 4, 5], 5)}")
+    logger.info(f"Process time: {time.process_time() - start} seconds")
