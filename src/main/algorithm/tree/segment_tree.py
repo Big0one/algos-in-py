@@ -2,6 +2,9 @@
 # we can find maximum/minimum sum/value in a given range
 
 import math
+from src.main.logger.py_logger import PyLogger
+
+logger = PyLogger.get_configured_logger()
 
 
 class SegmentTree:
@@ -41,9 +44,9 @@ class SegmentTree:
 if __name__ == "__main__":
     import time
 
-    start = time.process_time()
+    started = time.process_time()
     obj = SegmentTree([1, -2, 4, -1, 6, 2])
     obj.build(0, obj.size - 1, 1)
-    print(obj.query(0, obj.size - 1, 4, 5, 1))
-    print(obj.tree)
-    print(f'Process time: {time.process_time() - start} ms')
+    logger.info(f"Maximum in range {[4, 5]}: {obj.query(0, obj.size - 1, 4, 5, 1)}")
+    logger.info(f"Segment Tree: {obj.tree}")
+    logger.info(f"Process time: {time.process_time() - started} seconds")

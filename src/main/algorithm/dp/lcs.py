@@ -1,4 +1,7 @@
 # LCS: Longest Common Subsequence
+from src.main.logger.py_logger import PyLogger
+
+logger = PyLogger.get_configured_logger()
 
 
 def iterative_lcs(var1, var2):
@@ -59,8 +62,8 @@ if __name__ == "__main__":
 
     doctest.testmod()
     start = time.process_time()
-    print(iterative_lcs([1, 3, 2, 5], [1, 4, 2, 3, 5]))
-    print(f"Processed time: {time.process_time() - start}")
+    logger.info(f" lcs length: {iterative_lcs([1, 3, 2, 5], [1, 4, 2, 3, 5])}")
+    logger.info(f"Processed time: {time.process_time() - start} seconds")
     start = time.process_time()
-    print(recursive_lcs([1, 3, 2, 5], [1, 4, 2, 3, 5], 4, 5))
-    print(f"Processed time: {time.process_time() - start} ms")
+    logger.info(f" lcs length: {recursive_lcs([1, 3, 2, 5], [1, 4, 2, 3, 5], 4, 5)}")
+    logger.info(f"Processed time: {time.process_time() - start} seconds")
