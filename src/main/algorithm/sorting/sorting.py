@@ -150,3 +150,172 @@ def merge_sort(array, l, r):
         merge_sort(array, m + 1, r)
         merge(array, l, m, r)
     return array
+
+
+"""
+Counting sort: 
+
+For simplicity, consider the data in the range 0 to 9. 
+Input data: 1, 4, 1, 2, 7, 5, 2
+  1) Take a count array to store the count of each unique object.
+  Index:     0  1  2  3  4  5  6  7  8  9
+  Count:     0  2  2  0   1  1  0  1  0  0
+
+  2) Modify the count array such that each element at each index 
+  stores the sum of previous counts. 
+  Index:     0  1  2  3  4  5  6  7  8  9
+  Count:     0  2  4  4  5  6  6  7  7  7
+
+The modified count array indicates the position of each object in 
+the output sequence.
+ 
+  3) Output each object from the input sequence followed by 
+  decreasing its count by 1.
+  Process the input data: 1, 4, 1, 2, 7, 5, 2. Position of 1 is 2.
+  Put data 1 at index 2 in output. Decrease count by 1 to place 
+  next data 1 at an index 1 smaller than this index.
+"""
+
+# The main function that sort the given string arr[] in
+# alphabetical order
+def countSort(arr):
+    print(arr)
+    # The output character array that will have sorted arr
+    output = [0 for i in range(256)]
+
+    # Create a count array to store count of inidividul
+    # characters and initialize count array as 0
+    count = [0 for i in range(256)]
+    # For storing the resulting answer since the
+    # string is immutable
+    ans = ["" for _ in arr]
+    # Store count of each character
+    for i in arr:
+        count[ord(i)] += 1
+
+    # Change count[i] so that count[i] now contains actual
+    # position of this character in output array
+    for i in range(256):
+        count[i] += count[i - 1]
+
+    # Build the output character array
+    for i in range(len(arr)):
+        output[count[ord(arr[i])] - 1] = arr[i]
+        count[ord(arr[i])] -= 1
+
+    # Copy the output array to arr, so that arr now
+    # contains sorted characters
+    for i in range(len(arr)):
+        ans[i] = output[i]
+    return ans
+
+
+"""
+Radix Sort = counting Sort + radix
+
+The idea of Radix Sort is to do digit by digit sort starting from least significant digit to most significant digit.
+Radix sort uses counting sort as a subroutine to sort.
+"""
+
+
+# Python program for implementation of Radix Sort
+
+# A function to do counting sort of arr[] according to
+# the digit represented by exp.
+def countingSort(arr, exp1):
+
+    n = len(arr)
+
+    # The output array elements that will have sorted arr
+    output = [0] * (n)
+
+    # initialize count array as 0
+    count = [0] * (10)
+
+    # Store count of occurrences in count[]
+    for i in range(0, n):
+        index = int(arr[i] / exp1)
+        count[(index) % 10] += 1
+
+    # Change count[i] so that count[i] now contains actual
+    #  position of this digit in output array
+    for i in range(1, 10):
+        count[i] += count[i - 1]
+
+    # Build the output array
+    i = n - 1
+    while i >= 0:
+        index = int(arr[i] / exp1)
+
+        output[count[(index) % 10] - 1] = arr[i]
+        count[(index) % 10] -= 1
+        i -= 1
+    # Copying the output array to arr[],
+    # so that arr now contains sorted numbers
+    i = 0
+    for i in range(0, len(arr)):
+        arr[i] = output[i]
+    # return arr
+
+
+# Method to do Radix Sort
+def radixSort(arr):
+
+    # Find the maximum number to know number of digits
+    max1 = max(arr)
+
+    # Do counting sort for every digit. Note that instead
+    # of passing digit number, exp is passed. exp is 10^i
+    # where i is current digit number
+    exp = 1
+    while (max1 // exp) > 0:
+        countingSort(arr, exp)
+        exp *= 10
+    return arr
+
+
+"""
+Bucket Sort = insertion + bucket
+
+bucketSort(arr[], n)
+1) Create n empty buckets (Or lists).
+2) Do following for every array element arr[i].
+.......a) Insert arr[i] into bucket[n*array[i]]
+3) Sort individual buckets using insertion sort.
+4) Concatenate all sorted buckets.
+"""
+
+
+def insertionSort(b):
+    for i in range(1, len(b)):
+        up = b[i]
+        j = i - 1
+        while j >= 0 and b[j] > up:
+            b[j + 1] = b[j]
+            j -= 1
+        b[j + 1] = up
+    return b
+
+
+def bucketSort(x):
+    arr = []
+    slot_num = 10  # 10 means 10 slots, each
+    # slot's size is 0.1
+    for i in range(slot_num):
+        arr.append([])
+
+    # Put array elements in different buckets
+    for j in x:
+        index_b = int(slot_num * j)
+        arr[index_b].append(j)
+    # Sort individual buckets
+    for i in range(slot_num):
+        arr[i] = insertionSort(arr[i])
+
+    # concatenate the result
+    k = 0
+    for i in range(slot_num):
+        for j in range(len(arr[i])):
+            x[k] = arr[i][j]
+            k += 1
+    return x
