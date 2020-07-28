@@ -1,11 +1,11 @@
-# BIT: Binary Indexed Tree
+# BIT: Binary Indexed Tree or Fenwick Tree
 # A range queries algorithm
 from src.main.logger.py_logger import PyLogger
 
 logger = PyLogger.get_configured_logger()
 
 
-class BIT:
+class BinaryIndexedTree:
     tree = []
     size = 0
     array = []
@@ -29,7 +29,7 @@ class BIT:
     def update(self, index, value):
         """
         :param index: which position to be update
-        :param value: update value with new value
+        :param value: add value at the given index
         """
         while index <= self.size:
             self.tree[index] += value
@@ -44,7 +44,7 @@ if __name__ == "__main__":
     import time
 
     start = time.process_time()
-    obj = BIT([1, 2, 3, 5, 6])
+    obj = BinaryIndexedTree([1, 2, 3, 5, 6])
     obj.build()
     logger.info(f"Summation in range {[1, 3]}: {obj.query(3)}")
     logger.info(f"Process time: {time.process_time() - start} seconds")

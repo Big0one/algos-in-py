@@ -1,5 +1,5 @@
 import unittest
-from src.main.algorithm.dp.lis import *
+from src.main.algorithm.dynamic_programming.longest_increasing_subsequence import *
 
 
 class LISTestCase(unittest.TestCase):

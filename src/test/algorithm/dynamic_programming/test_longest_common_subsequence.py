@@ -1,5 +1,5 @@
 import unittest
-from src.main.algorithm.dp.lcs import *
+from src.main.algorithm.dynamic_programming.longest_common_subsequence import *
 
 
 class LCSTest(unittest.TestCase):
